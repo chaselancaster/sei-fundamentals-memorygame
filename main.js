@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var cards = ['queen', 'queen', 'king', 'king'];
 
 var cardsInPlay = [];
@@ -38,11 +37,3 @@ if (cardsInPlay.length === 2) {
 
 
 
-=======
-console.log("Up and running!");
-var cardOne = 'queen';
-var cardTwo = 'queen';
-var cardThree = 'king';
-var cardFour = 'king';
-console.log('User flipped ' + cardOne);
->>>>>>> ee19aa0edd2bc890703e7263db6fde9e337fe68d
