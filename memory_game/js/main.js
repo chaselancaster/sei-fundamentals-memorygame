@@ -1,48 +1,44 @@
-<<<<<<< HEAD
-var cards = ['queen', 'queen', 'king', 'king'];
+// Leaving these two arrays outside of the flipCard function since we want them to have global scope.
+var cards = ["queen", "queen", "king", "king"];
 
 var cardsInPlay = [];
 
-//First card that is flipped
+//Function to store the steps to check for a match.
+var checkForMath = function() {
+    if (cardsInPlay[0] === cardsInPlay[1]) {
+        console.log("You found a match!");
+    } else {
+        console.log("Sorry, try again.");
+    }
+};
 
-var cardOne = cards[0];
+// Function to store all steps that should happen when the user flips a card.
 
-cardsInPlay.push(cardOne);
+var flipCard = function(cardId) {
+    console.log("User flipped " + cards[cardId]);
+    //adding the card user flipped to cardsInPlay array
+    cardsInPlay.push(cards[cardId]);
+    if (cardsInPlay.length === 2) {
+        checkForMath();
+    }
 
-console.log('User flipped queen');
+    //If statement that checks if length of cardsInPlay array is 2
+    if (cardsInPlay.length === 2) {
+        if (cardsInPlay[0] === cardsInPlay[1]) {
+            alert("You found a match!");
+        } else if (cardsInPlay[0] !== cardsInPlay[1]) {
+            alert("Sorry, try again.");
+        }
+    }
+};
 
-//Second card that is flipped
-
-var cardTwo = cards[2];
-
-cardsInPlay.push(cardTwo);
-
-console.log('User flipped king');
-
-//If statement that checks if length of cardsInPlay array is 2
-
-if (cardsInPlay.length === 2) {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert('You found a match!');
-	} else if (cardsInPlay[0] !== cardsInPlay[1]) {
-		alert('Sorry, try again.');
-	}
-}
-
-
-
-
-
-
-
-
+flipCard(0);
+flipCard(2);
 
 
-=======
-console.log("Up and running!");
-var cardOne = 'queen';
-var cardTwo = 'queen';
-var cardThree = 'king';
-var cardFour = 'king';
-console.log('User flipped ' + cardOne);
->>>>>>> ee19aa0edd2bc890703e7263db6fde9e337fe68d
+
+
+
+
+
+
