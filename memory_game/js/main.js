@@ -24,7 +24,7 @@ var cards = [
 
 var cardsInPlay = [];
 
-//Function to store the steps to check for a match.
+// Function to store the steps to check for a match.
 var checkForMath = function() {
     if (cardsInPlay[0] === cardsInPlay[1]) {
         console.log("You found a match!");
@@ -35,7 +35,8 @@ var checkForMath = function() {
 
 // Function to store all steps that should happen when the user flips a card.
 
-var flipCard = function(cardId) {
+var flipCard = function() {
+	var cardId = this.getAttribute('data-id');
     console.log("User flipped " + cards[cardId].rank);
     //adding the card user flipped to cardsInPlay array
     cardsInPlay.push(cards[cardId].rank);
@@ -44,11 +45,13 @@ var flipCard = function(cardId) {
     console.log('Suit: ' + cards[cardId].suit);
     if (cardsInPlay.length === 2) {
         checkForMath();
-    }
+    };
     
-    
+// setAttribute method to update the src attribute to the image of the card that was just clicked (img source is in the cardImage property in that card's object in the cards array)
 
-    //If statement that checks if length of cardsInPlay array is 2
+this.setAttribute('src', cards[cardId].cardImage);
+
+   // If statement that checks if length of cardsInPlay array is 2
     if (cardsInPlay.length === 2) {
         if (cardsInPlay[0] === cardsInPlay[1]) {
             alert("You found a match!");
@@ -58,9 +61,17 @@ var flipCard = function(cardId) {
     }
 };
 
-flipCard(0);
-flipCard(2);
+var createBoard = function() {
+	for (var i = 0; i < cards.length; i++) {
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+};
 
+createBoard();
 
 
 
